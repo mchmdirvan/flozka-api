@@ -1,12 +1,13 @@
 import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
-import { prisma } from "./lib/prisma";
 import { cors } from "hono/cors";
+import { Scalar } from "@scalar/hono-api-reference";
+
 import {
   ProductSchema,
   ProductsSchema,
   ProductsSlugSchema,
 } from "./modules/product/schema";
-import { Scalar } from "@scalar/hono-api-reference";
+import { prisma } from "./lib/prisma";
 
 const app = new OpenAPIHono();
 
@@ -43,7 +44,7 @@ app.openapi(
         description: "Get all products",
       },
       404: {
-        description: "Product not found",
+        description: "Not found",
       },
     },
   }),
