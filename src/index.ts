@@ -54,7 +54,7 @@ app.openapi(
       where: { slug },
     });
     if (!product) {
-      return c.json({ error: "Product not found" }, 404);
+      return c.json({ message: "Product not found" }, 404);
     }
 
     return c.json(product);
